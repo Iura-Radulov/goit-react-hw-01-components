@@ -1,8 +1,16 @@
 .title {
-  display: inline-block;
+  display: block;
+  text-align: center;
+  padding: 20px 0;
   font-size: 25px;
   font-weight: bold;
 }
 .list {
   display: flex;
+}
+.item {
+  display: block;
+}
+.item p {
+  padding: 20px;
 }

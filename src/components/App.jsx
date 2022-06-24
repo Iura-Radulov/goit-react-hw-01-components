@@ -3,7 +3,10 @@ import Profile from './Profile/Profile';
 import user from "./Profile/user.json"
 import StatisticList from "components/Statistics/Statistics"
 import data from "./Statistics/data.json"
-
+import FriendList from "./FriendList/FriendList";
+import friends from './FriendList/friends.json';
+import TransactionHistory from "./TransactionHistory/TransactionHistory";
+import transactions from './TransactionHistory/transactions.json';
 
 export const App = () => {
   return (    
@@ -23,10 +26,16 @@ export const App = () => {
       avatar={user.avatar}
         stats={user.stats} />
       
-    </div>
-      <section class= "statistics">
+    </div>     
+      <section className="statistics">
         <StatisticList title="Upload stats" stats={data }/>
-    </section>
+      </section>
+      <section className="friends">
+        <FriendList friends={ friends}/>
+      </section>
+      <section className="transactions">
+        <TransactionHistory items={ transactions}/>
+      </section>
     </div>
   );
 };

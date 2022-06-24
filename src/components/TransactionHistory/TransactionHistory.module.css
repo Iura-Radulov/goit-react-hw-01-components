@@ -1,0 +1,19 @@
+.transactionHistory {
+  border: 2px solid rgb(109, 99, 99);
+}
+.thead {
+  background-color: cadetblue;
+}
+.theadItem {
+  padding: 10px 50px;
+}
+.tbodyItem {
+  text-align: center;
+  padding: 10px 0;
+}
+.tbodyRow:nth-child(2n + 1) {
+  background-color: rgb(238, 211, 192);
+}
+.tbodyRow:nth-child(2n) {
+  background-color: rgb(236, 231, 227);
+}
