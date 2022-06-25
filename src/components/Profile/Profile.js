@@ -2,7 +2,7 @@ import s from "./Profile.module.css";
 import React from "react";
 import PropTypes from "prop-types";
 
-const Profile = ({username, tag, location, avatar, stats }) => (
+const Profile = ({username, tag, location, avatar, stats:{followers, views, likes} }) => (
     <div className={s.profile}>
   <div className={s.description}>
     <img
@@ -20,15 +20,15 @@ const Profile = ({username, tag, location, avatar, stats }) => (
   <ul className={s.stats}>
     <li className={s.statsList}>
         <span className={s.label}>Followers</span>
-      <span className={s.quantity}> {stats.followers}</span>
+      <span className={s.quantity}> {followers}</span>
     </li>
     <li className={s.statsList}>
       <span className={s.label}>Views</span>
-      <span className={s.quantity}>{ stats.views}</span>
+      <span className={s.quantity}>{ views}</span>
     </li>
     <li className={s.statsList}>
       <span className={s.label}>Likes</span>
-      <span className={s.quantity}>{ stats.likes}</span>
+      <span className={s.quantity}>{ likes}</span>
     </li>
   </ul>
 </div>    
@@ -39,7 +39,10 @@ Profile.propTypes = {
     tag: PropTypes.string,
     location: PropTypes.string.isRequired,
     avatar: PropTypes.string,
-    stats: PropTypes.object
+    stats: PropTypes.object,
+    followers: PropTypes.number,
+    views: PropTypes.number,
+    likes: PropTypes.number
 }
 
 export default Profile
