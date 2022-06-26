@@ -15,14 +15,13 @@ const TransactionHistory = ({items}) => {
             </thead>
 
                 <tbody className={s.tbody}>
-                    {items.map(item => (
-                        <tr key={item.id} className={s.tbodyRow}>
-                           <td className={s.tbodyItem}>{item.type}</td>
-                            <td className={s.tbodyItem}>{ item.amount}</td>
-                            <td className={s.tbodyItem}>{item.currency}</td>
+                    {items.map(({id, type, amount, currency}) => (
+                        <tr key={id} className={s.tbodyRow}>
+                           <td className={s.tbodyItem}>{type}</td>
+                            <td className={s.tbodyItem}>{amount}</td>
+                            <td className={s.tbodyItem}>{currency}</td>
                 </tr>
-                    ))}
-                
+                    ))}                
                 
             </tbody>
             </table>
@@ -31,7 +30,7 @@ const TransactionHistory = ({items}) => {
 }
 
 TransactionHistory.propTypes = {
-    items: PropTypes.arrayOf(PropTypes.object).isRequired
+    items: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)).isRequired
 }
 
 export default TransactionHistory

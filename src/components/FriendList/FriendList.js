@@ -7,8 +7,10 @@ import FriendListItem from "./FriendListItem";
 const FriendList = ({ friends }) => {   
     return (
         <>
-        <ul className={s.friendList}>
-                <FriendListItem friends={ friends}/>
+            <ul className={s.friendList}>
+                 {friends.map(friend => (
+                    <FriendListItem key={ friend.id} friend={ friend}/>
+        ))}                
         </ul>
         </>
     )
@@ -16,7 +18,12 @@ const FriendList = ({ friends }) => {
 
 
 FriendList.propTypes = {
-    friends: PropTypes.arrayOf(PropTypes.object).isRequired
+    friends: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.number,
+        isOnline: PropTypes.bool,
+        avatar: PropTypes.string,
+        name: PropTypes.string,
+    })).isRequired
 }
 
 export default FriendList
